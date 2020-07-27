@@ -1,4 +1,4 @@
-import { SpecReporter, StacktraceOption } from "jasmine-spec-reporter";
+import { SpecReporter, StacktraceOption } from 'jasmine-spec-reporter';
 
 export let reporter = () => {
   jasmine.getEnv().addReporter(
