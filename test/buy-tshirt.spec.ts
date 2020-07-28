@@ -53,7 +53,5 @@ describe('Buy a t-shirt', () => {
     // order-summary.page
     await expect(orderSummaryPage.checkOrderSummary())
       .toBe('Your order on My Store is complete.');
-    /*await expect($('#center_column > div > p > strong').getText())
-      .toBe('Your order on My Store is complete.');*/
   });
 });
