@@ -1,6 +1,6 @@
-import { $, browser } from 'protractor';
+import { browser } from 'protractor';
 import { MenuContentPage, AddressStepPage, BankPaymentPage, ProductAddedPage,
-  ProductListPage, SummaryContentPage, SignInContent, OrderSummaryPage,
+  ProductListPage, SummaryContentPage, SingInStepPage, OrderSummaryPage,
   ShippingStepPage, PaymentStepPage } from '../src/page';
 
 describe('Buy a t-shirt', () => {
@@ -10,7 +10,7 @@ describe('Buy a t-shirt', () => {
   const productAddedPage: ProductAddedPage = new ProductAddedPage();
   const productListPage: ProductListPage = new ProductListPage();
   const summaryContentPage: SummaryContentPage = new SummaryContentPage();
-  const singInContentPage: SignInContent = new SignInContent();
+  const singInContentPage: SingInStepPage = new SingInStepPage();
   const orderSummaryPage: OrderSummaryPage = new OrderSummaryPage();
   const shippingStepPage: ShippingStepPage = new ShippingStepPage();
   const paymentStepPage: PaymentStepPage = new PaymentStepPage();
@@ -24,11 +24,11 @@ describe('Buy a t-shirt', () => {
     await(browser.sleep(10000));
     await menuContentPage.goToTShirtMenu();
     await(browser.sleep(3000));
-    // product-added-modal.page
-    await productAddedPage.addProduct();
-    await(browser.sleep(3000));
     // product-list.page
     await productListPage.checkProductList();
+    await(browser.sleep(3000));
+    // product-added-modal.page
+    await productAddedPage.addProduct();
     await(browser.sleep(3000));
     // summary-step.page
     await summaryContentPage.goToSummary();
@@ -39,10 +39,9 @@ describe('Buy a t-shirt', () => {
     // address-step.page
     await addressContentPage.confirmAddress();
     await(browser.sleep(3000));
-    // order-summary.page
-    await orderSummaryPage.checkOrderSummary();
-    await(browser.sleep(3000));
     // shipping-step.page
+    await shippingStepPage.checkAcceptTerms();
+    await(browser.sleep(3000));
     await shippingStepPage.goToShippingStep();
     await(browser.sleep(3000));
     // payment-step.page
@@ -51,8 +50,10 @@ describe('Buy a t-shirt', () => {
     // bank-payment.page
     await bankContentPage.checkBankPayment();
     await(browser.sleep(3000));
-
-    await expect($('#center_column > div > p > strong').getText())
+    // order-summary.page
+    await expect(orderSummaryPage.checkOrderSummary())
       .toBe('Your order on My Store is complete.');
+    /*await expect($('#center_column > div > p > strong').getText())
+      .toBe('Your order on My Store is complete.');*/
   });
 });

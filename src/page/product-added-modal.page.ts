@@ -4,7 +4,7 @@ export class ProductAddedPage {
   private productAdded: ElementFinder;
 
   constructor () {
-    this.productAdded = $('#center_column a.button.ajax_add_to_cart_button.btn.btn-default');
+    this.productAdded = $('[style*="display: block;"] .button-container > a');
   }
 
   public async addProduct(): Promise<void> {
