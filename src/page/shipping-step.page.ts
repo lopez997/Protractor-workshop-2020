@@ -5,7 +5,7 @@ export class ShippingStepPage {
   private acceptTerms: ElementFinder;
 
   constructor () {
-    this.shippingStep = $('#form > p > button > span');
+    this.shippingStep = $('.cart_navigation span');
     this.acceptTerms = $('#cgv');
   }
 

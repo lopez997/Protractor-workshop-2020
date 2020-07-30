@@ -4,7 +4,7 @@ export class ProductAddedPage {
   private productAdded: ElementFinder;
 
   constructor () {
-    this.productAdded = $('[style*="display: block;"] .button-container > a');
+    this.productAdded = $('a[title="Proceed to checkout"]');
   }
 
   public async addProduct(): Promise<void> {

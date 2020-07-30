@@ -4,7 +4,7 @@ export class AddressStepPage {
   private address: ElementFinder;
 
   constructor () {
-    this.address = $('#center_column > form > p > button > span');
+    this.address = $('[name="processAddress"]');
   }
 
   public async confirmAddress(): Promise<void> {

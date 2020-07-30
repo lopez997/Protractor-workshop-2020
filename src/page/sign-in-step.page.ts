@@ -4,7 +4,7 @@ export class SingInStepPage {
   private signIn: ElementFinder;
 
   constructor () {
-    this.signIn = $('#SubmitLogin > span');
+    this.signIn = $('#SubmitLogin');
   }
 
   public async goTosignIn(): Promise<void> {
