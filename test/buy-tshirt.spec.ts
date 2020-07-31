@@ -51,11 +51,9 @@ describe('Should Load Page Browser', () => {
             await paymentStepPage.goToPaymentStep();
             await bankContentPage.checkBankPayment();
           });
-
           it('then should be bought a t-shirt', async () => {
             const orderSummaryPage: OrderSummaryPage = new OrderSummaryPage();
-            await expect(orderSummaryPage.checkOrderSummary())
-            .toBe('Your order on My Store is complete.');
+            await expect(orderSummaryPage.checkOrderSummary()).toBe('Your order on My Store is complete.');
           });
         });
       });
